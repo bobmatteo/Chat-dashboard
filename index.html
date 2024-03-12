@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat</title>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="setDarkMode()">
+    <div class="container">
+
+        <dialog class="add-modal">
+
+            <div class="dialog-header">
+
+                <p class="large">Settings</p>
+
+                <div class="close-modal-container">
+
+                    <div class="shortcut inline">
+                        <p>ESC</p>
+                    </div>
+
+                    <div class="button close-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z">
+                            </path>
+                        </svg>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="dialog-container">
+
+                <aside class="settings-sidebar">
+
+                    <div class="section">
+                        <input class="item-checkbox" type="radio" name="settings" value="1" id="set0" checked />
+                        <label class="item" for="set0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M40,92H70.06a36,36,0,0,0,67.88,0H216a12,12,0,0,0,0-24H137.94a36,36,0,0,0-67.88,0H40a12,12,0,0,0,0,24Zm64-24A12,12,0,1,1,92,80,12,12,0,0,1,104,68Zm112,96H201.94a36,36,0,0,0-67.88,0H40a12,12,0,0,0,0,24h94.06a36,36,0,0,0,67.88,0H216a12,12,0,0,0,0-24Zm-48,24a12,12,0,1,1,12-12A12,12,0,0,1,168,188Z">
+                                </path>
+                            </svg>
+                            <p>General</p>
+                        </label>
+
+                        <input class="item-checkbox" type="radio" name="settings" value="1" id="set1" checked />
+                        <label class="item" for="set1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M216,92H180V56a12,12,0,0,0-12-12H52V40a12,12,0,0,0-24,0V216a12,12,0,0,0,24,0v-4h84a12,12,0,0,0,12-12V164h68a12,12,0,0,0,12-12V104A12,12,0,0,0,216,92ZM156,68V92H52V68ZM124,188H52V164h72Zm80-48H52V116H204Z">
+                                </path>
+                            </svg>
+                            <p>Plans & Usage</p>
+                        </label>
+
+                        <input class="item-checkbox" type="radio" name="settings" value="1" id="set2" />
+                        <label class="item" for="set2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M234.38,210a123.36,123.36,0,0,0-60.78-53.23,76,76,0,1,0-91.2,0A123.36,123.36,0,0,0,21.62,210a12,12,0,1,0,20.77,12c18.12-31.32,50.12-50,85.61-50s67.49,18.69,85.61,50a12,12,0,0,0,20.77-12ZM76,96a52,52,0,1,1,52,52A52.06,52.06,0,0,1,76,96Z">
+                                </path>
+                            </svg>
+                            <p>Account</p>
+                        </label>
+
+                        <input class="item-checkbox" type="radio" name="settings" value="1" id="set3" />
+                        <label class="item" for="set3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M125.18,156.94a64,64,0,1,0-82.36,0,100.23,100.23,0,0,0-39.49,32,12,12,0,0,0,19.35,14.2,76,76,0,0,1,122.64,0,12,12,0,0,0,19.36-14.2A100.33,100.33,0,0,0,125.18,156.94ZM44,108a40,40,0,1,1,40,40A40,40,0,0,1,44,108Zm206.1,97.67a12,12,0,0,1-16.78-2.57A76.31,76.31,0,0,0,172,172a12,12,0,0,1,0-24,40,40,0,1,0-14.85-77.16,12,12,0,1,1-8.92-22.28,64,64,0,0,1,65,108.38,100.23,100.23,0,0,1,39.49,32A12,12,0,0,1,250.1,205.67Z">
+                                </path>
+                            </svg>
+                            <p>Users</p>
+                        </label>
+
+                        <input class="item-checkbox" type="radio" name="settings" value="1" id="set4" />
+                        <label class="item" for="set4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M208,36H48A20,20,0,0,0,28,56V114.8c0,92.36,78.1,123,93.76,128.18a19.6,19.6,0,0,0,12.48,0C149.9,237.78,228,207.16,228,114.8V56A20,20,0,0,0,208,36Zm-4,78.8c0,73.56-60.53,99.53-76,105-15.47-5.42-76-31.39-76-104.95V60H204Z">
+                                </path>
+                            </svg>
+                            <p>Privacy</p>
+                        </label>
+
+                        <input class="item-checkbox" type="radio" name="settings" value="1" id="set5" />
+                        <label class="item" for="set5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M225.29,165.93C216.61,151,212,129.57,212,104a84,84,0,0,0-168,0c0,25.58-4.59,47-13.27,61.93A20.08,20.08,0,0,0,30.66,186,19.77,19.77,0,0,0,48,196H84.18a44,44,0,0,0,87.64,0H208a19.77,19.77,0,0,0,17.31-10A20.08,20.08,0,0,0,225.29,165.93ZM128,212a20,20,0,0,1-19.6-16h39.2A20,20,0,0,1,128,212ZM54.66,172C63.51,154,68,131.14,68,104a60,60,0,0,1,120,0c0,27.13,4.48,50,13.33,68Z">
+                                </path>
+                            </svg>
+                            <p>Notifications</p>
+                        </label>
+
+                        <input class="item-checkbox" type="radio" name="settings" value="1" id="set6" />
+                        <label class="item" for="set6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M251,123.13c-.37-.81-9.13-20.26-28.48-39.61C196.63,57.67,164,44,128,44S59.37,57.67,33.51,83.52C14.16,102.87,5.4,122.32,5,123.13a12.08,12.08,0,0,0,0,9.75c.37.82,9.13,20.26,28.49,39.61C59.37,198.34,92,212,128,212s68.63-13.66,94.48-39.51c19.36-19.35,28.12-38.79,28.49-39.61A12.08,12.08,0,0,0,251,123.13Zm-46.06,33C183.47,177.27,157.59,188,128,188s-55.47-10.73-76.91-31.88A130.36,130.36,0,0,1,29.52,128,130.45,130.45,0,0,1,51.09,99.89C72.54,78.73,98.41,68,128,68s55.46,10.73,76.91,31.89A130.36,130.36,0,0,1,226.48,128,130.45,130.45,0,0,1,204.91,156.12ZM128,84a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,84Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,148Z">
+                                </path>
+                            </svg>
+                            <p>Accessibility</p>
+                        </label>
+                    </div>
+
+                    <div class="spacer"></div>
+
+                    <div class="section">
+                        <div class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M116,216a12,12,0,0,1-12,12H48a20,20,0,0,1-20-20V48A20,20,0,0,1,48,28h56a12,12,0,0,1,0,24H52V204h52A12,12,0,0,1,116,216Zm108.49-96.49-40-40a12,12,0,0,0-17,17L187,116H104a12,12,0,0,0,0,24h83l-19.52,19.51a12,12,0,0,0,17,17l40-40A12,12,0,0,0,224.49,119.51Z">
+                                </path>
+                            </svg>
+                            <p>Log out</p>
+                        </div>
+                    </div>
+
+                </aside>
+
+                <div class="dialog-content">
+                    <div class="dialog-content-header">
+                        <p class="large">Plans</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    <div class="plans">
+                        <div class="plan">
+                            <div class="plan-intro start">
+                                <p>Starter</p>
+                                <p class="price">$0 <span>enjoy!</span></p>
+                                <div class="perk">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z">
+                                        </path>
+                                    </svg>
+                                    <p>1 user</p>
+                                </div>
+                                <div class="perk">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z">
+                                        </path>
+                                    </svg>
+                                    <p>1 workspace</p>
+                                </div>
+                                <div class="perk">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z">
+                                        </path>
+                                    </svg>
+                                    <p>10 documents</p>
+                                </div>
+                                <div class="button">
+                                    <p>Downgrade</p>
+                                </div>
+                            </div>
+                            <p class="large">Usage</p>
+                            <div class="statusses">
+                                <div class="status">
+                                    <div class="status-type">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M125.18,156.94a64,64,0,1,0-82.36,0,100.23,100.23,0,0,0-39.49,32,12,12,0,0,0,19.35,14.2,76,76,0,0,1,122.64,0,12,12,0,0,0,19.36-14.2A100.33,100.33,0,0,0,125.18,156.94ZM44,108a40,40,0,1,1,40,40A40,40,0,0,1,44,108Zm206.1,97.67a12,12,0,0,1-16.78-2.57A76.31,76.31,0,0,0,172,172a12,12,0,0,1,0-24,40,40,0,1,0-14.85-77.16,12,12,0,1,1-8.92-22.28,64,64,0,0,1,65,108.38,100.23,100.23,0,0,1,39.49,32A12,12,0,0,1,250.1,205.67Z">
+                                            </path>
+                                        </svg>
+                                        <p>Users</p>
+                                    </div>
+                                    <div class="status-bar start">
+                                        <div class="status-progress full" style="width: 100%"></div>
+                                    </div>
+                                    <p><span>2 seats used</span></p>
+                                </div>
+                                <div class="status">
+                                    <div class="status-type">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M221.56,100.85,141.61,25.38l-.16-.15a19.93,19.93,0,0,0-26.91,0l-.17.15L34.44,100.85A20.07,20.07,0,0,0,28,115.55V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V115.55A20.07,20.07,0,0,0,221.56,100.85ZM204,204H52V117.28l76-71.75,76,71.75Z">
+                                            </path>
+                                        </svg>
+                                        <p>Workspaces</p>
+                                    </div>
+                                    <div class="status-bar start">
+                                        <div class="status-progress full red" style="width: 100%"></div>
+                                    </div>
+                                    <p><span>3 workspaces used</span></p>
+                                </div>
+                                <div class="status">
+                                    <div class="status-type">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M220.49,59.51l-40-40A12,12,0,0,0,172,16H92A20,20,0,0,0,72,36V56H56A20,20,0,0,0,36,76V216a20,20,0,0,0,20,20H164a20,20,0,0,0,20-20V196h20a20,20,0,0,0,20-20V68A12,12,0,0,0,220.49,59.51ZM160,212H60V80h67l33,33Zm40-40H184V108a12,12,0,0,0-3.51-8.49l-40-40A12,12,0,0,0,132,56H96V40h71l33,33Zm-56-28a12,12,0,0,1-12,12H88a12,12,0,0,1,0-24h44A12,12,0,0,1,144,144Zm0,40a12,12,0,0,1-12,12H88a12,12,0,0,1,0-24h44A12,12,0,0,1,144,184Z">
+                                            </path>
+                                        </svg>
+                                        <p>Documents</p>
+                                    </div>
+                                    <div class="status-bar start">
+                                        <div class="status-progress orange" style="width: 90%"></div>
+                                    </div>
+                                    <p><span>9 documents used</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vr"></div>
+                        <div class="plan">
+                            <div class="plan-intro">
+                                <p>Growth</p>
+                                <p class="price">$99 <span>/ month</span></p>
+                                <div class="perk">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z">
+                                        </path>
+                                    </svg>
+                                    <p>10 users</p>
+                                </div>
+                                <div class="perk">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z">
+                                        </path>
+                                    </svg>
+                                    <p>3 workspaces</p>
+                                </div>
+                                <div class="perk">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z">
+                                        </path>
+                                    </svg>
+                                    <p>100 documents</p>
+                                </div>
+                                <div class="button disabled">
+                                    <p>Active plan</p>
+                                </div>
+                            </div>
+                            <div class="statusses">
+                                <div class="status">
+                                    <div class="status-bar">
+                                        <div class="status-progress" style="width: 20%"></div>
+                                    </div>
+                                </div>
+                                <div class="status">
+                                    <div class="status-bar">
+                                        <div class="status-progress full red" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="status">
+                                    <div class="status-bar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vr"></div>
+                        <div class="plan">
+                            <div class="plan-intro end">
+                                <p>Pro</p>
+                                <p class="price">$299 <span>/ month</span></p>
+                                <div class="perk">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z">
+                                        </path>
+                                    </svg>
+                                    <p>30 users</p>
+                                </div>
+                                <div class="perk">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z">
+                                        </path>
+                                    </svg>
+                                    <p>10 workspaces</p>
+                                </div>
+                                <div class="perk">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z">
+                                        </path>
+                                    </svg>
+                                    <p>1000 documents</p>
+                                </div>
+                                <div class="button primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M212.45,107.14l-65.19,26.08,46.21,59.41a12,12,0,1,1-18.94,14.74L128,147.55,81.47,207.37a12,12,0,0,1-18.94-14.74l46.21-59.41L43.55,107.14a12,12,0,1,1,8.91-22.28L116,110.28V40a12,12,0,0,1,24,0v70.28l63.54-25.42a12,12,0,1,1,8.91,22.28Z">
+                                        </path>
+                                    </svg>
+                                    <p>Upgrade</p>
+                                </div>
+                            </div>
+                            <div class="statusses">
+                                <div class="status">
+                                    <div class="status-bar end">
+                                    </div>
+                                </div>
+                                <div class="status">
+                                    <div class="status-bar end">
+                                    </div>
+                                </div>
+                                <div class="status">
+                                    <div class="status-bar end">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </dialog>
+
+        <dialog class="main-search-modal">
+
+            <div class="search-container">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                    viewBox="0 0 256 256">
+                    <path
+                        d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z">
+                    </path>
+                </svg>
+                <input class="search" type="text" placeholder="Type a command or search...">
+                <div class="close-modal-container">
+
+                    <div class="shortcut inline">
+                        <p>ESC</p>
+                    </div>
+
+                    <div class="button close-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z">
+                            </path>
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="search-content">
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+                <div class="button item">
+                    <p>Option</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor" viewBox="0 0 256 256"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"></path></svg>
+                </div>
+            </div>
+
+        </dialog>
+
+        <aside class="chats">
+
+            <div class="workspace-selection">
+                <div class="workspace-avatar">
+                    <p>W</p>
+                </div>
+
+                <input class="dropdown-checkbox" type="checkbox" name="workspace" value="1" id="ws1" />
+                <label class="dropdown" for="ws1">
+
+
+                    <div class="item">
+                        <p>Workspace</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M184.49,167.51a12,12,0,0,1,0,17l-48,48a12,12,0,0,1-17,0l-48-48a12,12,0,0,1,17-17L128,207l39.51-39.52A12,12,0,0,1,184.49,167.51Zm-96-79L128,49l39.51,39.52a12,12,0,0,0,17-17l-48-48a12,12,0,0,0-17,0l-48,48a12,12,0,0,0,17,17Z">
+                            </path>
+                        </svg>
+                    </div>
+
+
+                    <div class="dropdown-contents bottom right">
+                        <div class="button">
+                            <div class="workspace-avatar">
+                                <p>S</p>
+                            </div>
+                            <p>Shared space</p>
+                        </div>
+                        <div class="button">
+                            <div class="workspace-avatar">
+                                <p>P</p>
+                            </div>
+                            <p>Private space</p>
+                        </div>
+                        <hr>
+                        <div class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z">
+                                </path>
+                            </svg>
+                            <p>Add workspace</p>
+                        </div>
+                    </div>
+                </label>
+            </div>
+
+            <div class="section">
+
+                <div class="title">Chats</div>
+
+                <input class="item-checkbox" type="radio" name="menu" value="1" id="c1" checked="true" />
+                <label class="item" for="c1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#26cf42" viewBox="0 0 256 256">
+                        <path
+                            d="M232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Z">
+                        </path>
+                    </svg>
+                    <p>Conversation</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                        </path>
+                    </svg>
+                </label>
+
+                <input class="item-checkbox" type="radio" name="menu" value="1" id="c2" />
+                <label class="item" for="c2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#26cf42" viewBox="0 0 256 256">
+                        <path
+                            d="M232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Z">
+                        </path>
+                    </svg>
+                    <p>Summaries</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                        </path>
+                    </svg>
+                </label>
+
+                <div class="add-chat-container">
+                    <svg class="add-chat-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#26cf42"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M232,128A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Z">
+                        </path>
+                    </svg>
+                    <input class="add-chat" type="text" placeholder="Name your chat" onfocusout="hideAddChat()">
+                    <svg class="remove-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                        fill="CurrentColor" viewBox="0 0 256 256">
+                        <path
+                            d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,130.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32L139.31,128Z">
+                        </path>
+                    </svg>
+                </div>
+
+                <div class="button add-chat-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z">
+                        </path>
+                    </svg>
+                    <p>Add chat</p>
+                    <div class="shortcut">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M180,140H164V116h16a40,40,0,1,0-40-40V92H116V76a40,40,0,1,0-40,40H92v24H76a40,40,0,1,0,40,40V164h24v16a40,40,0,1,0,40-40ZM164,76a16,16,0,1,1,16,16H164ZM60,76a16,16,0,0,1,32,0V92H76A16,16,0,0,1,60,76ZM92,180a16,16,0,1,1-16-16H92Zm24-64h24v24H116Zm64,80a16,16,0,0,1-16-16V164h16a16,16,0,0,1,0,32Z">
+                            </path>
+                        </svg>
+                        <p>N</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section">
+                <div class="title">Wallet</div>
+
+
+                <input class="item-checkbox" type="radio" name="menu" value="1" id="m1" />
+                <label class="item" for="m1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#81b562" viewBox="0 0 256 256">
+                        <path
+                            d="M152,116H140V60h4a28,28,0,0,1,28,28,12,12,0,0,0,24,0,52.06,52.06,0,0,0-52-52h-4V24a12,12,0,0,0-24,0V36h-4a52,52,0,0,0,0,104h4v56H104a28,28,0,0,1-28-28,12,12,0,0,0-24,0,52.06,52.06,0,0,0,52,52h12v12a12,12,0,0,0,24,0V220h12a52,52,0,0,0,0-104Zm-40,0a28,28,0,0,1,0-56h4v56Zm40,80H140V140h12a28,28,0,0,1,0,56Z">
+                        </path>
+                    </svg>
+                    <p>123,40</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                        </path>
+                    </svg>
+                </label>
+
+
+                <input class="item-checkbox" type="radio" name="menu" value="1" id="m2" />
+                <label class="item" for="m2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ef8e19" viewBox="0 0 256 256">
+                        <path
+                            d="M177.08,114.46A48,48,0,0,0,152,37.52V24a12,12,0,0,0-24,0V36H112V24a12,12,0,0,0-24,0V36H64a12,12,0,0,0,0,24h4V188H64a12,12,0,0,0,0,24H88v12a12,12,0,0,0,24,0V212h16v12a12,12,0,0,0,24,0V212a52,52,0,0,0,25.08-97.54ZM164,84a24,24,0,0,1-24,24H92V60h48A24,24,0,0,1,164,84ZM152,188H92V132h60a28,28,0,0,1,0,56Z">
+                        </path>
+                    </svg>
+                    <p>1,07</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                        </path>
+                    </svg>
+                </label>
+
+
+                <input class="item-checkbox" type="radio" name="menu" value="1" id="m3" />
+                <label class="item" for="m3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#cdaefa" viewBox="0 0 256 256">
+                        <path
+                            d="M225.44,120.59l-88-112a12,12,0,0,0-18.88,0l-88,112a12,12,0,0,0,0,14.82l.6.76a3.72,3.72,0,0,0,.44.56l87,110.68a12,12,0,0,0,18.88,0l88-112A12,12,0,0,0,225.44,120.59ZM140,50.7l57.12,72.7-57.12,26Zm-24,98.66-57.12-26L116,50.7Zm0,26.37V205.3l-36.15-46Zm24,0,36.15-16.43L140,205.3Z">
+                        </path>
+                    </svg>
+                    <p>55,00</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                        </path>
+                    </svg>
+                </label>
+
+
+                <div class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z">
+                        </path>
+                    </svg>
+                    <p>Add money</p>
+                </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="account">
+                <div class="account-menu">
+                    <div class="my-account"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="CurrentColor" viewBox="0 0 256 256">
+                            <path
+                                d="M234.38,210a123.36,123.36,0,0,0-60.78-53.23,76,76,0,1,0-91.2,0A123.36,123.36,0,0,0,21.62,210a12,12,0,1,0,20.77,12c18.12-31.32,50.12-50,85.61-50s67.49,18.69,85.61,50a12,12,0,0,0,20.77-12ZM76,96a52,52,0,1,1,52,52A52.06,52.06,0,0,1,76,96Z">
+                            </path>
+                        </svg></div>
+                    <div class="account-more"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="CurrentColor" viewBox="0 0 256 256">
+                            <path
+                                d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                            </path>
+                        </svg></div>
+                </div>
+                <div class="upgrade">
+                    <p>Upgrade</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M212.45,107.14l-65.19,26.08,46.21,59.41a12,12,0,1,1-18.94,14.74L128,147.55,81.47,207.37a12,12,0,0,1-18.94-14.74l46.21-59.41L43.55,107.14a12,12,0,1,1,8.91-22.28L116,110.28V40a12,12,0,0,1,24,0v70.28l63.54-25.42a12,12,0,1,1,8.91,22.28Z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+        </aside>
+        <div class="chats-resizer"></div>
+
+        <main>
+
+            <div class="header">
+                <div class="title">Chats<span> / </span>Conversation</div>
+
+                <div class="main-search-info">
+                    <p>Press</p>
+                    <div class="shortcut inline">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M180,140H164V116h16a40,40,0,1,0-40-40V92H116V76a40,40,0,1,0-40,40H92v24H76a40,40,0,1,0,40,40V164h24v16a40,40,0,1,0,40-40ZM164,76a16,16,0,1,1,16,16H164ZM60,76a16,16,0,0,1,32,0V92H76A16,16,0,0,1,60,76ZM92,180a16,16,0,1,1-16-16H92Zm24-64h24v24H116Zm64,80a16,16,0,0,1-16-16V164h16a16,16,0,0,1,0,32Z">
+                            </path>
+                        </svg>
+                        <p>K</p>
+                    </div>
+                    <p>to search for anything</p>
+                </div>
+
+                <input class="dropdown-checkbox" type="checkbox" name="checkbox1" value="1" id="cb1" />
+                <label class="dropdown" for="cb1">
+
+
+                    <div class="item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M212.45,107.14l-65.19,26.08,46.21,59.41a12,12,0,1,1-18.94,14.74L128,147.55,81.47,207.37a12,12,0,0,1-18.94-14.74l46.21-59.41L43.55,107.14a12,12,0,1,1,8.91-22.28L116,110.28V40a12,12,0,0,1,24,0v70.28l63.54-25.42a12,12,0,1,1,8.91,22.28Z">
+                            </path>
+                        </svg>
+                        <p>Smart search <span>1.2.7</span></p>
+                        <svg class="dropdown-closed" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="CurrentColor" viewBox="0 0 256 256">
+                            <path
+                                d="M216.49,104.49l-80,80a12,12,0,0,1-17,0l-80-80a12,12,0,0,1,17-17L128,159l71.51-71.52a12,12,0,0,1,17,17Z">
+                            </path>
+                        </svg>
+                        <svg class="dropdown-open" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="CurrentColor" viewBox="0 0 256 256">
+                            <path
+                                d="M216.49,168.49a12,12,0,0,1-17,0L128,97,56.49,168.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0l80,80A12,12,0,0,1,216.49,168.49Z">
+                            </path>
+                        </svg>
+                    </div>
+
+
+                    <div class="dropdown-contents bottom left">
+                        <div class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M212.45,107.14l-65.19,26.08,46.21,59.41a12,12,0,1,1-18.94,14.74L128,147.55,81.47,207.37a12,12,0,0,1-18.94-14.74l46.21-59.41L43.55,107.14a12,12,0,1,1,8.91-22.28L116,110.28V40a12,12,0,0,1,24,0v70.28l63.54-25.42a12,12,0,1,1,8.91,22.28Z">
+                                </path>
+                            </svg>
+                            <p>Smart search <span>1.2.7</span></p>
+                        </div>
+                        <div class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M216.49,79.52l-56-56A12,12,0,0,0,152,20H56A20,20,0,0,0,36,40V216a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V88A12,12,0,0,0,216.49,79.52ZM160,57l23,23H160ZM60,212V44h76V92a12,12,0,0,0,12,12h48V212Z">
+                                </path>
+                            </svg>
+                            <p>Document search <span>2.0.1</span></p>
+                        </div>
+                        <div class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20ZM107.07,172h41.86A115.75,115.75,0,0,1,128,209.85,115.75,115.75,0,0,1,107.07,172Zm-5.66-24a142.55,142.55,0,0,1,0-40h53.18a142.55,142.55,0,0,1,0,40ZM44,128a83.49,83.49,0,0,1,2.43-20H77.22a164.54,164.54,0,0,0,0,40H46.43A83.49,83.49,0,0,1,44,128ZM148.93,84H107.07A115.75,115.75,0,0,1,128,46.15,115.75,115.75,0,0,1,148.93,84Zm29.85,24h30.79a83.52,83.52,0,0,1,0,40H178.78a164.54,164.54,0,0,0,0-40Zm20.74-24H174a148.59,148.59,0,0,0-13.95-33.63A84.5,84.5,0,0,1,199.52,84ZM96,50.37A148.59,148.59,0,0,0,82,84H56.48A84.5,84.5,0,0,1,96,50.37ZM56.48,172H82a148.59,148.59,0,0,0,14,33.63A84.5,84.5,0,0,1,56.48,172Zm103.57,33.63A148.59,148.59,0,0,0,174,172h25.52A84.5,84.5,0,0,1,160.05,205.63Z">
+                                </path>
+                            </svg>
+                            <p>Web search <span>4.1.0</span></p>
+                        </div>
+                    </div>
+                </label>
+            </div>
+
+            <div class="chat-container">
+                <div class="chat-content">
+
+
+                    <div class="chat-bubble">
+                        <p class="sender">You</p>
+                        <p class="question">Can you summarise this document?</p>
+                    </div>
+
+
+                    <div class="chat-bubble">
+                        <div class="response">
+                            <p class="responder">Bob</p>
+
+
+                            <input class="dropdown-checkbox" type="checkbox" name="more" value="1" id="mr1" />
+                            <label class="dropdown" for="mr1">
+
+
+                                <div class="item naked">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M144,128a16,16,0,1,1-16-16A16,16,0,0,1,144,128ZM60,112a16,16,0,1,0,16,16A16,16,0,0,0,60,112Zm136,0a16,16,0,1,0,16,16A16,16,0,0,0,196,112Z">
+                                        </path>
+                                    </svg>
+                                </div>
+
+
+                                <div class="dropdown-contents bottom right">
+                                    <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M216,28H88A12,12,0,0,0,76,40V76H40A12,12,0,0,0,28,88V216a12,12,0,0,0,12,12H168a12,12,0,0,0,12-12V180h36a12,12,0,0,0,12-12V40A12,12,0,0,0,216,28ZM156,204H52V100H156Zm48-48H180V88a12,12,0,0,0-12-12H100V52H204Z">
+                                            </path>
+                                        </svg>
+                                        <p>Copy output</p>
+                                    </div>
+                                    <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M224,84H180.2l7.61-41.85a12,12,0,0,0-23.62-4.3L155.8,84H116.2l7.61-41.85a12,12,0,1,0-23.62-4.3L91.8,84H48a12,12,0,0,0,0,24H87.44l-7.27,40H32a12,12,0,0,0,0,24H75.8l-7.61,41.85a12,12,0,0,0,9.66,14A11.43,11.43,0,0,0,80,228a12,12,0,0,0,11.8-9.86L100.2,172h39.6l-7.61,41.85a12,12,0,0,0,9.66,14,11.43,11.43,0,0,0,2.16.2,12,12,0,0,0,11.8-9.86L164.2,172H208a12,12,0,0,0,0-24H168.56l7.27-40H224a12,12,0,0,0,0-24Zm-79.83,64H104.56l7.27-40h39.61Z">
+                                            </path>
+                                        </svg>
+                                        <p>View hash onchain</p>
+                                    </div>
+                                    <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M220.49,59.51l-40-40A12,12,0,0,0,172,16H92A20,20,0,0,0,72,36V56H56A20,20,0,0,0,36,76V216a20,20,0,0,0,20,20H164a20,20,0,0,0,20-20V196h20a20,20,0,0,0,20-20V68A12,12,0,0,0,220.49,59.51ZM160,212H60V80h67l33,33Zm40-40H184V108a12,12,0,0,0-3.51-8.49l-40-40A12,12,0,0,0,132,56H96V40h71l33,33Zm-56-28a12,12,0,0,1-12,12H88a12,12,0,0,1,0-24h44A12,12,0,0,1,144,144Zm0,40a12,12,0,0,1-12,12H88a12,12,0,0,1,0-24h44A12,12,0,0,1,144,184Z">
+                                            </path>
+                                        </svg>
+                                        <p>Show sources</p>
+                                    </div>
+                                </div>
+                            </label>
+
+
+                        </div>
+                        <p class="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        </p>
+                    </div>
+
+
+                    <div class="chat-bubble">
+                        <p class="sender">You</p>
+                        <p class="question">Can you make a graph out of that?</p>
+                    </div>
+
+
+                    <div class="chat-bubble">
+                        <div class="response">
+                            <p class="responder">Bob</p>
+
+
+                            <input class="dropdown-checkbox" type="checkbox" name="more" value="1" id="mr2" />
+                            <label class="dropdown" for="mr2">
+
+
+                                <div class="item naked">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M144,128a16,16,0,1,1-16-16A16,16,0,0,1,144,128ZM60,112a16,16,0,1,0,16,16A16,16,0,0,0,60,112Zm136,0a16,16,0,1,0,16,16A16,16,0,0,0,196,112Z">
+                                        </path>
+                                    </svg>
+                                </div>
+
+
+                                <div class="dropdown-contents bottom right">
+                                    <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M216,28H88A12,12,0,0,0,76,40V76H40A12,12,0,0,0,28,88V216a12,12,0,0,0,12,12H168a12,12,0,0,0,12-12V180h36a12,12,0,0,0,12-12V40A12,12,0,0,0,216,28ZM156,204H52V100H156Zm48-48H180V88a12,12,0,0,0-12-12H100V52H204Z">
+                                            </path>
+                                        </svg>
+                                        <p>Copy output</p>
+                                    </div>
+                                    <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M224,84H180.2l7.61-41.85a12,12,0,0,0-23.62-4.3L155.8,84H116.2l7.61-41.85a12,12,0,1,0-23.62-4.3L91.8,84H48a12,12,0,0,0,0,24H87.44l-7.27,40H32a12,12,0,0,0,0,24H75.8l-7.61,41.85a12,12,0,0,0,9.66,14A11.43,11.43,0,0,0,80,228a12,12,0,0,0,11.8-9.86L100.2,172h39.6l-7.61,41.85a12,12,0,0,0,9.66,14,11.43,11.43,0,0,0,2.16.2,12,12,0,0,0,11.8-9.86L164.2,172H208a12,12,0,0,0,0-24H168.56l7.27-40H224a12,12,0,0,0,0-24Zm-79.83,64H104.56l7.27-40h39.61Z">
+                                            </path>
+                                        </svg>
+                                        <p>View hash onchain</p>
+                                    </div>
+                                    <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M220.49,59.51l-40-40A12,12,0,0,0,172,16H92A20,20,0,0,0,72,36V56H56A20,20,0,0,0,36,76V216a20,20,0,0,0,20,20H164a20,20,0,0,0,20-20V196h20a20,20,0,0,0,20-20V68A12,12,0,0,0,220.49,59.51ZM160,212H60V80h67l33,33Zm40-40H184V108a12,12,0,0,0-3.51-8.49l-40-40A12,12,0,0,0,132,56H96V40h71l33,33Zm-56-28a12,12,0,0,1-12,12H88a12,12,0,0,1,0-24h44A12,12,0,0,1,144,144Zm0,40a12,12,0,0,1-12,12H88a12,12,0,0,1,0-24h44A12,12,0,0,1,144,184Z">
+                                            </path>
+                                        </svg>
+                                        <p>Show sources</p>
+                                    </div>
+                                </div>
+                            </label>
+
+
+                        </div>
+                        <p class="answer">Sure, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat:
+                        </p>
+
+                        <div class="graph">
+                            <canvas id="chart"></canvas>
+                        </div>
+
+
+                        <div class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M228,152v56a20,20,0,0,1-20,20H48a20,20,0,0,1-20-20V152a12,12,0,0,1,24,0v52H204V152a12,12,0,0,1,24,0Zm-108.49,8.49a12,12,0,0,0,17,0l40-40a12,12,0,0,0-17-17L140,123V40a12,12,0,0,0-24,0v83L96.49,103.51a12,12,0,0,0-17,17Z">
+                                </path>
+                            </svg>
+                            <p>Download as .png</p>
+                        </div>
+                    </div>
+
+
+                    <div class="chat-bubble">
+                        <p class="sender">You</p>
+                        <p class="question">Can you tell me more about these documents?</p>
+                    </div>
+
+
+                    <div class="chat-bubble">
+                        <div class="response">
+                            <p class="responder">Bob</p>
+
+
+                            <input class="dropdown-checkbox" type="checkbox" name="more" value="1" id="mr3" />
+                            <label class="dropdown" for="mr3">
+
+
+                                <div class="item naked">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                        viewBox="0 0 256 256">
+                                        <path
+                                            d="M144,128a16,16,0,1,1-16-16A16,16,0,0,1,144,128ZM60,112a16,16,0,1,0,16,16A16,16,0,0,0,60,112Zm136,0a16,16,0,1,0,16,16A16,16,0,0,0,196,112Z">
+                                        </path>
+                                    </svg>
+                                </div>
+
+
+                                <div class="dropdown-contents bottom right">
+                                    <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M216,28H88A12,12,0,0,0,76,40V76H40A12,12,0,0,0,28,88V216a12,12,0,0,0,12,12H168a12,12,0,0,0,12-12V180h36a12,12,0,0,0,12-12V40A12,12,0,0,0,216,28ZM156,204H52V100H156Zm48-48H180V88a12,12,0,0,0-12-12H100V52H204Z">
+                                            </path>
+                                        </svg>
+                                        <p>Copy output</p>
+                                    </div>
+                                    <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M224,84H180.2l7.61-41.85a12,12,0,0,0-23.62-4.3L155.8,84H116.2l7.61-41.85a12,12,0,1,0-23.62-4.3L91.8,84H48a12,12,0,0,0,0,24H87.44l-7.27,40H32a12,12,0,0,0,0,24H75.8l-7.61,41.85a12,12,0,0,0,9.66,14A11.43,11.43,0,0,0,80,228a12,12,0,0,0,11.8-9.86L100.2,172h39.6l-7.61,41.85a12,12,0,0,0,9.66,14,11.43,11.43,0,0,0,2.16.2,12,12,0,0,0,11.8-9.86L164.2,172H208a12,12,0,0,0,0-24H168.56l7.27-40H224a12,12,0,0,0,0-24Zm-79.83,64H104.56l7.27-40h39.61Z">
+                                            </path>
+                                        </svg>
+                                        <p>View hash onchain</p>
+                                    </div>
+                                    <div class="button">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="CurrentColor" viewBox="0 0 256 256">
+                                            <path
+                                                d="M220.49,59.51l-40-40A12,12,0,0,0,172,16H92A20,20,0,0,0,72,36V56H56A20,20,0,0,0,36,76V216a20,20,0,0,0,20,20H164a20,20,0,0,0,20-20V196h20a20,20,0,0,0,20-20V68A12,12,0,0,0,220.49,59.51ZM160,212H60V80h67l33,33Zm40-40H184V108a12,12,0,0,0-3.51-8.49l-40-40A12,12,0,0,0,132,56H96V40h71l33,33Zm-56-28a12,12,0,0,1-12,12H88a12,12,0,0,1,0-24h44A12,12,0,0,1,144,144Zm0,40a12,12,0,0,1-12,12H88a12,12,0,0,1,0-24h44A12,12,0,0,1,144,184Z">
+                                            </path>
+                                        </svg>
+                                        <p>Show sources</p>
+                                    </div>
+                                </div>
+                            </label>
+
+
+                        </div>
+                        <p class="answer">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
+                            quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                            sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-container">
+
+                <form class="input-field" autocomplete="off" action="">
+                    <input class="input" id="questionInput" type="text" name="question" placeholder="Message to Bob..."
+                        autocapitalize="sentences" onfocus="hideShortcut()" onfocusout="showShortcut()">
+                    <div class="input-buttons">
+                        <svg class="remove-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="CurrentColor" viewBox="0 0 256 256">
+                            <path
+                                d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm37.66,130.34a8,8,0,0,1-11.32,11.32L128,139.31l-26.34,26.35a8,8,0,0,1-11.32-11.32L116.69,128,90.34,101.66a8,8,0,0,1,11.32-11.32L128,116.69l26.34-26.35a8,8,0,0,1,11.32,11.32L139.31,128Z">
+                            </path>
+                        </svg>
+                        <div class="shortcut">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M180,140H164V116h16a40,40,0,1,0-40-40V92H116V76a40,40,0,1,0-40,40H92v24H76a40,40,0,1,0,40,40V164h24v16a40,40,0,1,0,40-40ZM164,76a16,16,0,1,1,16,16H164ZM60,76a16,16,0,0,1,32,0V92H76A16,16,0,0,1,60,76ZM92,180a16,16,0,1,1-16-16H92Zm24-64h24v24H116Zm64,80a16,16,0,0,1-16-16V164h16a16,16,0,0,1,0,32Z">
+                                </path>
+                            </svg>
+                            <p>B</p>
+                        </div>
+                        <input class="dropdown-checkbox" type="checkbox" name="input-setting" value="1" id="is1" />
+                        <label class="dropdown" for="is1">
+
+
+                            <div class="item naked">
+                                <svg class="input-settings" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="CurrentColor" viewBox="0 0 256 256">
+                                    <path
+                                        d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                                    </path>
+                                </svg>
+                            </div>
+
+
+                            <div class="dropdown-contents top left">
+                                <label class="button" for="sw1">
+                                    <input type="checkbox" name="switch" value="1" id="sw1" checked="true" />
+                                    <label class="switch" for="sw1">label</label>
+                                    <p>Show suggestions</p>
+                                </label>
+                                <label class="button" for="sw2">
+                                    <input type="checkbox" name="switch" value="1" id="sw2" />
+                                    <label class="switch" for="sw2">label</label>
+                                    <p>Show previous questions</p>
+                                </label>
+                                <label class="button" for="sw3">
+                                    <input type="checkbox" name="switch" value="1" id="sw3" />
+                                    <label class="switch" for="sw3">label</label>
+                                    <p>Show amount selected documents</p>
+                                </label>
+                            </div>
+                        </label>
+
+                        <div class="input-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M230.14,25.86a20,20,0,0,0-19.57-5.11l-.22.07L18.44,79a20,20,0,0,0-3,37.28l84.32,40,40,84.32a19.81,19.81,0,0,0,18,11.44c.57,0,1.15,0,1.73-.07A19.82,19.82,0,0,0,177,237.56L235.18,45.65a1.42,1.42,0,0,0,.07-.22A20,20,0,0,0,230.14,25.86ZM157,220.92l-33.72-71.19,45.25-45.25a12,12,0,0,0-17-17l-45.25,45.25L35.08,99,210,46Z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </main>
+
+        <div class="documents-resizer"></div>
+        <aside class="documents">
+
+            <div class="section">
+                <div class="title">Global documents</div>
+
+
+                <input class="folder-checkbox" type="checkbox" name="folder1" value="1" id="f1" />
+                <label class="folder" for="f1">
+
+
+                    <div class="item">
+                        <svg class="folder-closed" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1 3C1 2.44772 1.44772 2 2 2H4.46482C4.79917 2 5.1114 2.1671 5.29687 2.4453L5.70313 3.0547C5.8886 3.3329 6.20083 3.5 6.53518 3.5H14C14.5523 3.5 15 3.94772 15 4.5V7H1V3Z"
+                                fill="#4FB6FB" />
+                            <rect x="1" y="6" width="14" height="8" rx="1" fill="#1B81CE" />
+                        </svg>
+                        <svg class="folder-open" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1 3C1 2.44772 1.44772 2 2 2H4.46482C4.79917 2 5.1114 2.1671 5.29687 2.4453L5.70313 3.0547C5.8886 3.3329 6.20083 3.5 6.53518 3.5H14C14.5523 3.5 15 3.94772 15 4.5V13C15 13.5523 14.5523 14 14 14H2C1.44772 14 1 13.5523 1 13V3Z"
+                                fill="#4FB6FB" />
+                        </svg>
+                        <p>My first folder</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                            </path>
+                        </svg>
+                    </div>
+
+
+                    <div class="folder-contents">
+                        <div class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z">
+                                </path>
+                            </svg>
+                            <p>Add document</p>
+                        </div>
+                    </div>
+                </label>
+
+
+                <input class="folder-checkbox" type="checkbox" name="folder2" value="1" id="f2" />
+                <label class="folder" for="f2">
+
+
+                    <div class="item">
+                        <svg class="folder-closed" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1 3C1 2.44772 1.44772 2 2 2H4.46482C4.79917 2 5.1114 2.1671 5.29687 2.4453L5.70313 3.0547C5.8886 3.3329 6.20083 3.5 6.53518 3.5H14C14.5523 3.5 15 3.94772 15 4.5V7H1V3Z"
+                                fill="#4FB6FB" />
+                            <rect x="1" y="6" width="14" height="8" rx="1" fill="#1B81CE" />
+                        </svg>
+                        <svg class="folder-open" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M1 3C1 2.44772 1.44772 2 2 2H4.46482C4.79917 2 5.1114 2.1671 5.29687 2.4453L5.70313 3.0547C5.8886 3.3329 6.20083 3.5 6.53518 3.5H14C14.5523 3.5 15 3.94772 15 4.5V13C15 13.5523 14.5523 14 14 14H2C1.44772 14 1 13.5523 1 13V3Z"
+                                fill="#4FB6FB" />
+                        </svg>
+                        <p>Set of documents</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                            </path>
+                        </svg>
+                    </div>
+
+
+                    <div class="folder-contents">
+
+
+                        <input class="item-checkbox" type="checkbox" name="documents" value="1" id="fd1" />
+                        <label class="item" for="fd1">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M14.9726 9.98412C14.9403 9.84574 14.8688 9.72019 14.767 9.62323C14.4856 9.34 13.8735 9.19153 12.9241 9.17783C12.1824 9.17815 11.4418 9.23388 10.708 9.34457C10.3397 9.14298 9.995 8.8993 9.68044 8.61823C8.84793 7.79627 8.21259 6.78863 7.82406 5.67402C7.85087 5.56667 7.87321 5.47302 7.89554 5.37709C7.89554 5.37709 8.34233 2.80062 8.22169 1.9281C8.20992 1.84571 8.18816 1.76515 8.15691 1.68827L8.11893 1.58777C8.07225 1.42616 7.97787 1.28325 7.84871 1.17859C7.71955 1.07392 7.56192 1.01261 7.39738 1.00304H7.17399C6.99574 0.987525 6.81739 1.03173 6.66587 1.12897C6.51435 1.22621 6.39788 1.37121 6.33404 1.54208C6.06597 2.55622 6.33404 4.07515 6.84561 6.03948L6.71604 6.35925C6.35638 7.25919 5.90513 8.16369 5.5075 8.96084L5.45612 9.06362C5.02944 9.91103 4.65638 10.6145 4.31012 11.2175L3.95493 11.4094C3.92812 11.4231 3.31827 11.7543 3.1753 11.8411C1.96228 12.5834 1.15808 13.424 1.02404 14.0909C0.990225 14.203 0.992126 14.3231 1.02947 14.434C1.06682 14.5448 1.13767 14.6407 1.2318 14.7076L1.57582 14.8858C1.72149 14.9603 1.88205 14.9994 2.04494 15C2.90946 15 3.91249 13.8991 5.29528 11.4322C6.92978 10.8918 8.60381 10.4855 10.3015 10.2171C11.5078 10.9092 13.0045 11.3957 13.9472 11.3957C14.0916 11.3985 14.2357 11.3824 14.3761 11.3477C14.5481 11.3046 14.6994 11.2001 14.8028 11.0531C14.9807 10.7283 15.0408 10.3498 14.9726 9.98412ZM1.85506 14.3239C2.01143 13.8831 2.63693 13.0105 3.55953 12.2385C3.61761 12.1906 3.76058 12.0535 3.89015 11.9256C2.9251 13.5016 2.2795 14.1275 1.85506 14.3262V14.3239ZM7.3192 1.45986C7.5962 1.45986 7.76598 2.17478 7.76598 2.84631C7.7907 3.36499 7.67638 3.88072 7.43536 4.33782C7.28228 3.72984 7.20719 3.10407 7.21197 2.47628C7.21197 2.47628 7.19186 1.45986 7.3192 1.45986ZM5.69961 10.6282C5.89322 10.2734 6.09353 9.89884 6.30053 9.50446C6.69887 8.74311 7.05101 7.95742 7.35494 7.15183C7.79778 7.99086 8.38765 8.73953 9.09515 9.36056L9.36769 9.58897C8.11804 9.82689 6.8908 10.1746 5.69961 10.6282ZM14.5079 10.5483C14.3531 10.6081 14.1885 10.6368 14.0232 10.6328C13.5183 10.6328 12.8906 10.4044 12.0126 10.0115C12.35 9.9864 12.6605 9.9727 12.9375 9.9727C13.3267 9.9502 13.7169 9.99341 14.0924 10.1006C14.5772 10.2308 14.5839 10.4935 14.4967 10.5483H14.5079Z"
+                                    fill="#E64A19" />
+                            </svg>
+                            <p>Document<span>.pdf</span></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                                </path>
+                            </svg>
+                        </label>
+
+
+                        <input class="item-checkbox" type="checkbox" name="documents" value="1" id="fd2" />
+                        <label class="item" for="fd2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#e1643f"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M96,73,34.06,128,96,183A12,12,0,1,1,80,201L8,137A12,12,0,0,1,8,119L80,55A12,12,0,0,1,96,73ZM248,119,176,55A12,12,0,1,0,160,73l61.91,55L160,183A12,12,0,1,0,176,201l72-64A12,12,0,0,0,248,119Z">
+                                </path>
+                            </svg>
+                            <p>website<span>.com</span></p>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                                </path>
+                            </svg>
+                        </label>
+
+
+                        <div class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z">
+                                </path>
+                            </svg>
+                            <p>Add document</p>
+                        </div>
+                    </div>
+                </label>
+
+
+                <input class="item-checkbox" type="checkbox" name="documents" value="1" id="d1" />
+                <label class="item" for="d1">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.4446 2H5.55542C5.40811 2 5.26684 2.0535 5.16268 2.14873C5.05852 2.24397 5 2.37313 5 2.50781V5H15V2.50781C15 2.37313 14.9415 2.24397 14.8373 2.14873C14.7332 2.0535 14.5919 2 14.4446 2Z"
+                            fill="#41A5EE" />
+                        <path d="M15 5H5V8H15V5Z" fill="#2B7CD3" />
+                        <path d="M15 8H5V11H15V8Z" fill="#185ABD" />
+                        <path
+                            d="M15 11H5V13.4287C5 13.5802 5.05852 13.7255 5.16268 13.8327C5.26684 13.9398 5.40811 14 5.55542 14H14.4446C14.5919 14 14.7332 13.9398 14.8373 13.8327C14.9415 13.7255 15 13.5802 15 13.4287V11Z"
+                            fill="#103F91" />
+                        <path opacity="0.4"
+                            d="M8.3335 4H5V12H8.3335C8.5101 11.9995 8.67933 11.9333 8.8042 11.8157C8.92908 11.6982 8.99947 11.5389 9 11.3727V4.62729C8.99947 4.46108 8.92908 4.30181 8.8042 4.18428C8.67933 4.06675 8.5101 4.0005 8.3335 4Z"
+                            fill="black" />
+                        <path
+                            d="M1.58319 4H7.41681C7.57148 4 7.71982 4.06144 7.82919 4.17081C7.93856 4.28018 8 4.42852 8 4.58319V10.4168C8 10.5715 7.93856 10.7198 7.82919 10.8292C7.71982 10.9386 7.57148 11 7.41681 11H1.58319C1.42852 11 1.28018 10.9386 1.17081 10.8292C1.06144 10.7198 1 10.5715 1 10.4168V4.58319C1 4.42852 1.06144 4.28018 1.17081 4.17081C1.28018 4.06144 1.42852 4 1.58319 4Z"
+                            fill="#185ABD" />
+                        <path
+                            d="M6.15966 9.5H5.40336L4.52101 6.74L3.59664 9.5H2.84034L2 5.5H2.7563L3.34454 8.3L4.22689 5.58H4.85714L5.69748 8.3L6.28571 5.5H7L6.15966 9.5Z"
+                            fill="white" />
+                    </svg>
+                    <p>Word<span>.doc</span></p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                        </path>
+                    </svg>
+                </label>
+
+
+                <input class="item-checkbox" type="checkbox" name="documents" value="1" id="d2" />
+                <label class="item" for="d2">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.4446 2H5.55542C5.40811 2 5.26684 2.0535 5.16268 2.14873C5.05852 2.24397 5 2.37313 5 2.50781V5H15V2.50781C15 2.37313 14.9415 2.24397 14.8373 2.14873C14.7332 2.0535 14.5919 2 14.4446 2Z"
+                            fill="#33C481" />
+                        <path d="M15 5H5V8H15V5Z" fill="#21A366" />
+                        <path d="M15 8H5V11H15V8Z" fill="#107C41" />
+                        <path
+                            d="M15 11H5V13.4287C5 13.5802 5.05852 13.7255 5.16268 13.8327C5.26684 13.9398 5.40811 14 5.55542 14H14.4446C14.5919 14 14.7332 13.9398 14.8373 13.8327C14.9415 13.7255 15 13.5802 15 13.4287V11Z"
+                            fill="#185C37" />
+                        <path opacity="0.4"
+                            d="M8.3335 4H5V12H8.3335C8.5101 11.9995 8.67933 11.9333 8.8042 11.8157C8.92908 11.6982 8.99947 11.5389 9 11.3727V4.62729C8.99947 4.46108 8.92908 4.30181 8.8042 4.18428C8.67933 4.06675 8.5101 4.0005 8.3335 4Z"
+                            fill="black" />
+                        <path
+                            d="M1.58319 4H7.41681C7.57148 4 7.71982 4.06144 7.82919 4.17081C7.93856 4.28018 8 4.42852 8 4.58319V10.4168C8 10.5715 7.93856 10.7198 7.82919 10.8292C7.71982 10.9386 7.57148 11 7.41681 11H1.58319C1.42852 11 1.28018 10.9386 1.17081 10.8292C1.06144 10.7198 1 10.5715 1 10.4168V4.58319C1 4.42852 1.06144 4.28018 1.17081 4.17081C1.28018 4.06144 1.42852 4 1.58319 4Z"
+                            fill="#107C41" />
+                        <path
+                            d="M2.5 9.5L3.94901 7.4944L2.6218 5.5H3.68975L4.41425 6.7748C4.48082 6.8956 4.52664 6.98573 4.55172 7.0452H4.56112C4.60888 6.94867 4.65889 6.8548 4.71113 6.7636L5.48534 5.5H6.46552L5.10428 7.4832L6.5 9.5H5.45668L4.61978 8.1C4.58035 8.04037 4.54694 7.97772 4.51993 7.9128H4.50739C4.48297 7.97629 4.45052 8.03708 4.41067 8.094L3.54959 9.5H2.5Z"
+                            fill="white" />
+                    </svg>
+
+                    <p>Excel<span>.xls</span></p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                        </path>
+                    </svg>
+                </label>
+
+
+                <div class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z">
+                        </path>
+                    </svg>
+                    <p>Add document or folder</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="title">Chat specific documents</div>
+
+
+                <input class="item-checkbox" type="checkbox" name="documents" value="1" id="d3" />
+                <label class="item" for="d3">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M13.9894 12.5H2.01062C1.74259 12.5 1.48553 12.3888 1.29601 12.1909C1.10648 11.993 1 11.7246 1 11.4447V4.55533C1 4.27544 1.10648 4.00701 1.29601 3.8091C1.48553 3.61119 1.74259 3.5 2.01062 3.5H13.9894C14.2574 3.5 14.5145 3.61119 14.704 3.8091C14.8935 4.00701 15 4.27544 15 4.55533V11.4447C15.0006 11.5834 14.9748 11.7209 14.9242 11.8492C14.8737 11.9775 14.7992 12.0941 14.7053 12.1922C14.6113 12.2904 14.4997 12.3681 14.3768 12.4209C14.2539 12.4737 14.1222 12.5006 13.9894 12.5ZM4.36437 10.3893V7.64822L5.71187 9.4071L7.055 7.64822V10.3893H8.40249V5.61066H7.055L5.71187 7.36954L4.36437 5.61066H3.01687V10.3893H4.36437ZM13.3856 8H12.0381V5.61066H10.6906V8H9.34749L11.3644 10.4624L13.3856 8Z"
+                            fill="#42A5F5" />
+                    </svg>
+                    <p>Markdown<span>.md</span></p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                        </path>
+                    </svg>
+                </label>
+
+
+                <input class="item-checkbox" type="checkbox" name="documents" value="1" id="d4" />
+                <label class="item" for="d4">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 14C7.4087 14 5.88258 13.3679 4.75736 12.2426C3.63214 11.1174 3 9.5913 3 8L9 8L9 14Z"
+                            fill="#D35230" />
+                        <path d="M3 8C3 6.4087 3.63214 4.88258 4.75736 3.75736C5.88258 2.63214 7.4087 2 9 2L9 8L3 8Z"
+                            fill="#ED6C47" />
+                        <path d="M9 2C10.5913 2 12.1174 2.63214 13.2426 3.75736C14.3679 4.88258 15 6.4087 15 8L9 8L9 2Z"
+                            fill="#FF8F6B" />
+                        <path
+                            d="M15 8C15 8.78793 14.8448 9.56815 14.5433 10.2961C14.2417 11.0241 13.7998 11.6855 13.2426 12.2426C12.6855 12.7998 12.0241 13.2417 11.2961 13.5433C10.5681 13.8448 9.78793 14 9 14L9 8H15Z"
+                            fill="#D35230" />
+                        <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M9 5.62729C8.99947 5.46108 8.92908 5.30181 8.8042 5.18428C8.67933 5.06675 8.5101 5.0005 8.3335 5H4V11.3167C4.21936 11.6474 4.47257 11.9579 4.75736 12.2426C5.04215 12.5274 5.35262 12.7806 5.68333 13H8.3335C8.5101 12.9995 8.67933 12.9333 8.8042 12.8157C8.92908 12.6982 8.99947 12.5389 9 12.3727V8V5.62729Z"
+                            fill="black" />
+                        <path
+                            d="M1.58319 5H7.41681C7.57148 5 7.71982 5.06144 7.82919 5.17081C7.93856 5.28018 8 5.42852 8 5.58319V11.4168C8 11.5715 7.93856 11.7198 7.82919 11.8292C7.71982 11.9386 7.57148 12 7.41681 12H1.58319C1.42852 12 1.28018 11.9386 1.17081 11.8292C1.06144 11.7198 1 11.5715 1 11.4168V5.58319C1 5.42852 1.06144 5.28018 1.17081 5.17081C1.28018 5.06144 1.42852 5 1.58319 5Z"
+                            fill="#C43E1C" />
+                        <path
+                            d="M4.55447 6.50376C4.93742 6.47727 5.3171 6.59127 5.62592 6.82546C5.75258 6.9416 5.85188 7.08581 5.91629 7.2472C5.9807 7.40858 6.00855 7.58291 5.99772 7.75698C6.00197 7.98301 5.93768 8.20479 5.81376 8.39159C5.68764 8.59804 5.50612 8.76263 5.29107 8.86554C5.04521 8.98284 4.77649 9.0408 4.50547 9.03498H3.76265V10.5H3V6.50376H4.55447ZM3.76226 8.3752H4.41836C4.62638 8.39092 4.8328 8.3278 4.99861 8.19777C5.06449 8.15422 5.11756 8.09302 5.1521 8.02077C5.18664 7.94852 5.20134 7.86795 5.19462 7.78775C5.19462 7.34577 4.94403 7.12478 4.44286 7.12478H3.76226V8.3752Z"
+                            fill="#F9F7F7" />
+                    </svg>
+
+
+                    <p>Presentation<span>.pptx</span></p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                        </path>
+                    </svg>
+                </label>
+
+
+                <input class="item-checkbox" type="checkbox" name="documents" value="1" id="d5" />
+                <label class="item" for="d5">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M2 3C2 2.44772 2.44772 2 3 2H13C13.5523 2 14 2.44772 14 3V13C14 13.5523 13.5523 14 13 14H3C2.44772 14 2 13.5523 2 13V3Z"
+                            fill="#42A5F5" />
+                        <path
+                            d="M9.09038 7.58517C9.28943 7.30081 9.71056 7.30081 9.90962 7.58517L12.4493 11.2133C12.6813 11.5447 12.4442 12 12.0397 12H6.96033C6.55582 12 6.31874 11.5447 6.55071 11.2133L9.09038 7.58517Z"
+                            fill="white" />
+                        <path
+                            d="M5.11589 9.46093C5.31579 9.22106 5.68421 9.22106 5.88411 9.46093L7.31659 11.1799C7.58798 11.5056 7.3564 12 6.93248 12H4.06752C3.6436 12 3.41202 11.5056 3.68341 11.1799L5.11589 9.46093Z"
+                            fill="white" />
+                    </svg>
+                    <p>Image<span>.png</span></p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M112,60a16,16,0,1,1,16,16A16,16,0,0,1,112,60Zm16,52a16,16,0,1,0,16,16A16,16,0,0,0,128,112Zm0,68a16,16,0,1,0,16,16A16,16,0,0,0,128,180Z">
+                        </path>
+                    </svg>
+                </label>
+
+
+                <div class="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                        viewBox="0 0 256 256">
+                        <path
+                            d="M228,128a12,12,0,0,1-12,12H140v76a12,12,0,0,1-24,0V140H40a12,12,0,0,1,0-24h76V40a12,12,0,0,1,24,0v76h76A12,12,0,0,1,228,128Z">
+                        </path>
+                    </svg>
+                    <p>Add document or folder</p>
+                </div>
+            </div>
+
+            <div class="spacer"></div>
+
+            <div class="settings">
+                <div class="settings-menu">
+
+
+                    <input class="dropdown-checkbox" type="checkbox" name="checkbox1" value="1" id="acc" />
+                    <label class="dropdown" for="acc">
+
+
+                        <div class="accessibility">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M251,123.13c-.37-.81-9.13-20.26-28.48-39.61C196.63,57.67,164,44,128,44S59.37,57.67,33.51,83.52C14.16,102.87,5.4,122.32,5,123.13a12.08,12.08,0,0,0,0,9.75c.37.82,9.13,20.26,28.49,39.61C59.37,198.34,92,212,128,212s68.63-13.66,94.48-39.51c19.36-19.35,28.12-38.79,28.49-39.61A12.08,12.08,0,0,0,251,123.13Zm-46.06,33C183.47,177.27,157.59,188,128,188s-55.47-10.73-76.91-31.88A130.36,130.36,0,0,1,29.52,128,130.45,130.45,0,0,1,51.09,99.89C72.54,78.73,98.41,68,128,68s55.46,10.73,76.91,31.89A130.36,130.36,0,0,1,226.48,128,130.45,130.45,0,0,1,204.91,156.12ZM128,84a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,84Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,148Z">
+                                </path>
+                            </svg>
+                        </div>
+
+
+                        <div class="dropdown-contents top left">
+                            <label class="button" for="acc1">
+                                <input type="checkbox" name="switch" value="1" id="acc1" />
+                                <label class="switch" for="acc1">label</label>
+                                <p>High contrast</p>
+                            </label>
+
+                            <label class="button" for="acc2">
+                                <input type="checkbox" name="switch" value="1" id="acc2" />
+                                <label class="switch" for="acc2">label</label>
+                                <p>Reduce motion</p>
+                            </label>
+
+                            <label class="button" for="acc3">
+                                <input type="checkbox" name="switch" value="1" id="acc3" />
+                                <label class="switch" for="acc3">label</label>
+                                <p>Simple language</p>
+                            </label>
+
+                            <label class="button" for="acc4">
+                                <input type="checkbox" name="switch" value="1" id="acc4" />
+                                <label class="switch" for="acc4">label</label>
+                                <p>Larger text size</p>
+                            </label>
+
+                            <label class="button" for="acc5">
+                                <input type="checkbox" name="switch" value="1" id="acc5" checked />
+                                <label class="switch" for="acc5">label</label>
+                                <p>Show shortcuts</p>
+                            </label>
+                        </div>
+                    </label>
+
+
+                    <div class="mode-switch">
+
+
+                        <input class="mode-checkbox" type="radio" name="mode" value="1" id="1" checked="true" />
+                        <label class="dark-mode" for="1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M236.37,139.4a12,12,0,0,0-12-3A84.07,84.07,0,0,1,119.6,31.59a12,12,0,0,0-15-15A108.86,108.86,0,0,0,49.69,55.07,108,108,0,0,0,136,228a107.09,107.09,0,0,0,64.93-21.69,108.86,108.86,0,0,0,38.44-54.94A12,12,0,0,0,236.37,139.4Zm-49.88,47.74A84,84,0,0,1,68.86,69.51,84.93,84.93,0,0,1,92.27,48.29Q92,52.13,92,56A108.12,108.12,0,0,0,200,164q3.87,0,7.71-.27A84.79,84.79,0,0,1,186.49,187.14Z">
+                                </path>
+                            </svg>
+                        </label>
+
+
+                        <input class="mode-checkbox" type="radio" name="mode" value="1" id="2" />
+                        <label class="light-mode" for="2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="CurrentColor"
+                                viewBox="0 0 256 256">
+                                <path
+                                    d="M116,32V16a12,12,0,0,1,24,0V32a12,12,0,0,1-24,0Zm80,96a68,68,0,1,1-68-68A68.07,68.07,0,0,1,196,128Zm-24,0a44,44,0,1,0-44,44A44.05,44.05,0,0,0,172,128ZM51.51,68.49a12,12,0,1,0,17-17l-12-12a12,12,0,0,0-17,17Zm0,119-12,12a12,12,0,0,0,17,17l12-12a12,12,0,1,0-17-17ZM196,72a12,12,0,0,0,8.49-3.51l12-12a12,12,0,0,0-17-17l-12,12A12,12,0,0,0,196,72Zm8.49,115.51a12,12,0,0,0-17,17l12,12a12,12,0,0,0,17-17ZM44,128a12,12,0,0,0-12-12H16a12,12,0,0,0,0,24H32A12,12,0,0,0,44,128Zm84,84a12,12,0,0,0-12,12v16a12,12,0,0,0,24,0V224A12,12,0,0,0,128,212Zm112-96H224a12,12,0,0,0,0,24h16a12,12,0,0,0,0-24Z">
+                                </path>
+                            </svg>
+                        </label>
+                    </div>
+
+
+                </div>
+            </div>
+        </aside>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

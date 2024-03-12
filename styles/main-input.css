@@ -1,0 +1,90 @@
+.input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+.input-field {
+    width: 100%;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    position: relative;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background-color: var(--background);
+    box-shadow: 0px 10px 20px 40px var(--background);
+
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.input {
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+    font-size: 14px;
+    padding-left: 20px;
+    border: 0px;
+    background-color: transparent;
+    color: var(--text-highlight);
+    outline: none;
+}
+
+.input-field:focus-within {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
+.input-buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+}
+
+.input-button {
+    color: white;
+    padding: 8px;
+    background-color: var(--primary);
+    border-radius: 40px;
+    display: flex;
+}
+
+.input-button:hover,
+.input-settings:hover {
+    cursor: pointer;
+}
+
+.autocomplete-items {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.autocomplete-items .button {
+    display: block;
+}
+
+.autocomplete-items .button span {
+    color: var(--text-highlight);
+}
+
+.suggestion {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    color: var(--text);
+}

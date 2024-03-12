@@ -1,0 +1,296 @@
+aside {
+    position: relative;
+    margin: 0;
+    box-sizing: border-box;
+    width: 350px;
+    min-width: 250px;
+    max-width: 450px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.chats {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.documents {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.chats-resizer,
+.documents-resizer {
+    position: relative;
+    z-index: 2;
+    cursor: col-resize;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    width: 2px;
+    height: 100%;
+
+    background: transparent;
+}
+
+.chats-resizer {
+    border-right-color: var(--border);
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+.documents-resizer {
+    border-left-color: var(--border);
+    border-left-width: 1px;
+    border-left-style: solid;
+}
+
+.chats-resizer::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 100%;
+    height: 80px;
+    width: 4px;
+    margin-top: -80/2;
+    margin-right: -2px;
+    border-left-color: var(--border);
+    border-left-width: 2px;
+    border-left-style: solid;
+}
+
+.chats-resizer:hover::before {
+    border-left-color: var(--border-highlight);
+}
+
+.chats-resizer:hover {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
+.chats-resizer-hover {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
+.documents-resizer::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 100%;
+    height: 80px;
+    width: 4px;
+    margin-top: -80/2;
+    margin-left: -2px;
+    border-right-color: var(--border);
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+
+.documents-resizer:hover::after {
+    border-right-color: var(--border-highlight);
+}
+
+.documents-resizer:hover {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
+.documents-resizer-hover {
+    outline: 2px solid var(--primary);
+    outline-offset: -2px;
+}
+
+/* Workspace */
+
+.workspace-selection {
+    color: var(--text-highlight);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    padding: 0 !important;
+    border-radius: 4px;
+}
+
+.workspace-selection:hover {
+    cursor: pointer;
+}
+
+.workspace-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--background-highlight);
+    border-radius: 32px;
+}
+
+.workspace-avatar p,
+.workspace-avatar svg {
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Add new chat */
+
+.add-chat-container {
+    position: relative;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    color: color-mix(in srgb, var(--text) 30%, transparent);
+}
+
+.add-chat-container .add-chat-icon {
+    position: absolute;
+    padding: 6px;
+}
+
+.add-chat {
+    width: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    padding: 6px 6px 6px 30px;
+    background: transparent;
+    box-shadow: none;
+    border: 0px;
+    border-radius: 4px;
+
+    color: var(--text);
+}
+
+.add-chat::placeholder {
+    color: color-mix(in srgb, var(--text) 30%, transparent);
+}
+
+.add-chat:focus::placeholder {
+    color: var(--text);
+}
+
+.add-chat:hover {
+    background: var(--background-hover);
+}
+
+.add-chat:hover::placeholder {
+    color: var(--text);
+}
+
+.add-chat-container:hover {
+    color: var(--text);
+}
+
+.add-chat-container:focus-within {
+    color: var(--text-highlight);
+}
+
+.add-chat:focus {
+    outline: 0px;
+    color: var(--text-highlight);
+    background: var(--background-highlight);
+}
+
+/* Account */
+
+.account {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.account-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.my-account,
+.account-more,
+.accessibility {
+    color: var(--text-highlight);
+    padding: 8px;
+    background-color: var(--background-highlight);
+    border-radius: 40px;
+    display: flex;
+}
+
+.my-account:hover,
+.account-more:hover,
+.accessibility:hover {
+    cursor: pointer;
+}
+
+.upgrade {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 4px;
+    color: var(--text);
+}
+
+.upgrade svg {
+    color: var(--primary);
+}
+
+.upgrade:hover {
+    cursor: pointer;
+    color: var(--primary);
+    background-color: var(--primary-20);
+}
+
+/* Settings and Accessibility */
+
+.settings {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.settings-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.mode-switch {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: end;
+    gap: 12px;
+}
+
+.dark-mode,
+.light-mode {
+    padding: 8px;
+    color: var(--text-highlight);
+    background-color: var(--background-highlight);
+    border-radius: 40px;
+    display: flex;
+    cursor: pointer;
+}
+
+.mode-checkbox {
+    display: none;
+}
+
+.mode-checkbox:checked+label {
+    display: none;
+}

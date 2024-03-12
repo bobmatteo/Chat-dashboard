@@ -1,0 +1,371 @@
+@import "styles/sidebars.css";
+@import "styles/modals.css";
+@import "styles/main-section.css";
+@import "styles/main-input.css";
+
+:root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    /* fix for Chrome */
+
+    --primary: #6655DD;
+    --primary-20: rgba(102, 85, 221, 0.2);
+    --background: #ffffff;
+    --background-highlight: #ececec;
+    --background-hover: rgba(0, 0, 0, 0.05);
+    --border: rgba(0, 0, 0, 0.1);
+    --border-highlight: rgba(0, 0, 0, 0.3);
+    --text: #666666;
+    --text-highlight: #000000;
+
+    --max-content-width: 600px;
+}
+
+@supports (font-variation-settings: normal) {
+    :root {
+        font-family: InterVariable, sans-serif;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+html {
+    height: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+}
+
+body {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+p.large {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.title {
+    color: var(--text-highlight);
+    padding: 6px;
+}
+
+.title span {
+    opacity: 0.3;
+    padding: 0 4px;
+}
+
+.primary {
+    color: var(--primary);
+}
+
+hr {
+    width: 100%;
+    border: 0px;
+    border-top: 1px solid var(--border);
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Items and Buttons */
+
+.item,
+.button {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 4px;
+    color: var(--text);
+}
+
+main .button {
+    align-self: flex-start;
+}
+
+.button {
+    cursor: pointer;
+}
+
+.button.primary {
+    color: var(--primary);
+    background-color: var(--background-hover);
+}
+
+.button.primary:hover {
+    color: var(--primary);
+    background-color: var(--primary-20);
+}
+
+.button:hover {
+    cursor: pointer;
+    color: var(--text-highlight);
+    background-color: var(--background-hover);
+}
+
+.button.disabled {
+    cursor: not-allowed;
+    color: var(--border-highlight);
+    background-color: var(--background-hover);
+}
+
+.button.disabled:hover {
+    cursor: not-allowed;
+    color: var(--border-highlight);
+    background-color: var(--background-hover);
+}
+
+.item:hover {
+    cursor: pointer;
+    background-color: var(--background-hover);
+}
+
+.item p {
+    flex-grow: 1;
+}
+
+p span {
+    opacity: 0.5;
+}
+
+.item.naked {
+    display: inline;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.item.naked:hover {
+    background-color: transparent;
+}
+
+/* Checkboxes */
+
+input[type=checkbox], input[type=radio]{
+    display: none;
+}
+
+.item-checkbox:checked+.item {
+    color: var(--text-highlight);
+    background-color: var(--primary-20);
+}
+
+.switch {
+    cursor: pointer;
+	text-indent: -9999px;
+	width: 30px;
+	height: 16px;
+	background: var(--background-highlight);
+	display: block;
+	border-radius: 20px;
+	position: relative;
+}
+
+.switch::after {
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 12px;
+	height: 12px;
+	background: white;
+	border-radius: 10px;
+}
+
+input:checked + .switch {
+	background: var(--primary);
+}
+
+input:checked + .switch:after {
+	left: calc(100% - 2px);
+	transform: translateX(-100%);
+}
+
+/* Dropdowns and Folders */
+
+.folder-open,
+.dropdown-open {
+    display: none;
+}
+
+.folder-checkbox:checked+.folder {
+    background-color: var(--background-hover);
+}
+
+.folder-checkbox:checked+.folder .folder-contents {
+    display: flex;
+}
+
+.folder-checkbox:checked+.folder .item .folder-closed {
+    display: none;
+}
+
+.folder-checkbox:checked+.folder .item .folder-open {
+    display: inline;
+}
+
+.folder {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-radius: 4px;
+}
+
+.folder-contents {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 30px;
+}
+
+.dropdown-checkbox:checked+.dropdown .dropdown-contents {
+    display: flex;
+}
+
+.dropdown-checkbox:checked+.dropdown .item {
+    color: var(--text-highlight);
+    background-color: var(--background-highlight);
+}
+
+.dropdown-checkbox:checked+.dropdown .item.naked {
+    color: var(--text-highlight);
+    background-color: transparent;
+}
+
+.dropdown-checkbox:checked+.dropdown .item .dropdown-closed {
+    display: none;
+}
+
+.dropdown-checkbox:checked+.dropdown .item .dropdown-open {
+    display: inline;
+}
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.dropdown-contents {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    align-items: stretch;
+    position: absolute;
+    padding: 8px;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    width: max-content;
+    min-width: 200px;
+    z-index: 998;
+}
+
+.dropdown-contents .button {
+    align-self: stretch;
+}
+
+.dropdown-contents.left {
+    right: 0;
+}
+
+.dropdown-contents.right {
+    left: 0;
+}
+
+.dropdown-contents.top {
+    bottom: 100%;
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
+
+.dropdown-contents.bottom {
+    top: 100%;
+    margin-top: 4px;
+    margin-bottom: 0px;
+}
+
+/* Shortcuts */
+
+.shortcut {
+    position: absolute;
+    padding: 4px;
+    margin: 2px;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    color: var(--text);
+    background: var(--background-hover);
+    border-radius: 4px;
+}
+
+.shortcut.inline {
+    position: relative;
+}
+
+.shortcut p {
+    min-width: 16px;
+    text-align: center;
+}
+
+.search:focus+.shortcut {
+    display: none;
+}
+
+.input-buttons .shortcut {
+    position: relative;
+}
+
+/* Remove icon for inputs */
+
+.remove-icon {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    padding: 6px;
+    right: 0;
+
+    color: var(--text);
+}
+
+.input-buttons .remove-icon {
+    position: relative;
+}
